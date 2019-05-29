@@ -1,5 +1,11 @@
 #videoconference_page {
     min-height: 100%;
+    display: flex;
+}
+
+#videoconference {
+    flex: 1;
+    position: relative;
 }
 
 #videospace {

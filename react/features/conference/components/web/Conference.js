@@ -34,6 +34,8 @@ import {
 
 import type { AbstractProps } from '../AbstractConference';
 
+import BreakoutRooms from '../../../breakout-rooms/components/BreakoutRooms.web';
+
 declare var APP: Object;
 declare var config: Object;
 declare var interfaceConfig: Object;
@@ -208,21 +210,24 @@ class Conference extends AbstractConference<Props, *> {
                 className = { this.props._layoutClassName }
                 id = 'videoconference_page'
                 onMouseMove = { this._onShowToolbar }>
-                <Notice />
-                <Subject />
-                <div id = 'videospace'>
-                    <LargeVideo />
-                    { hideVideoQualityLabel
+                <BreakoutRooms />
+                <div id = 'videoconference'>
+                    <Subject />
+                    <Notice />
+                    <div id = 'videospace'>
+                        <LargeVideo />
+                        { hideVideoQualityLabel
                         || <Labels /> }
-                    <Filmstrip filmstripOnly = { filmstripOnly } />
+                        <Filmstrip filmstripOnly = { filmstripOnly } />
+                    </div>
+
+                    { filmstripOnly || <Toolbox /> }
+                    { filmstripOnly || <Chat /> }
+
+                    { this.renderNotificationsContainer() }
+                    <CalleeInfoContainer />
                 </div>
 
-                { filmstripOnly || <Toolbox /> }
-                { filmstripOnly || <Chat /> }
-
-                { this.renderNotificationsContainer() }
-
-                <CalleeInfoContainer />
             </div>
         );
     }
