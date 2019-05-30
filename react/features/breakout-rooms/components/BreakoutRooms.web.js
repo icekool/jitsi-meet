@@ -40,7 +40,7 @@ export class BreakoutRooms extends Component<Props> {
      * @type {Function}
      */
     render() {
-        const BREAKOUT_ROOM_NAMES = [ 'sai', 'sai1', 'sai2' ];
+        const BREAKOUT_ROOM_NAMES = this._createBreakoutRoomNames();
 
         return (
             <div id = 'breakout_room_space'>
@@ -55,6 +55,14 @@ export class BreakoutRooms extends Component<Props> {
             </div>);
     }
 
+    /**
+     * Returns breakout room names prepared from current room.
+
+     * @returns {Array} - An array of breakout room names.
+     */
+    _createBreakoutRoomNames() {
+        return [ 1, 2, 3 ].map(suffix => `${this.props._room}${suffix}`);
+    }
 
     /**
      * Join a breakout room.
