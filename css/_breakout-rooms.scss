@@ -1,3 +1,16 @@
-.breakout_room_space {
-    width: 100px;
+#breakout_room_space {
+    width: 150px;
+
+    .roomItem {
+        background-color: #596577;
+        padding: 10px 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+        height: 30px;
+        text-align: center;
+        cursor: pointer;
+        color: white;
+        box-shadow: 6px 6px black;
+        width: 120px;
+    }
 }

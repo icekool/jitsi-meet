@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import { connect } from '../../base/redux';
 import type { Dispatch } from 'redux';
 import { appNavigate } from '../../app';
-import Item from '@atlaskit/dropdown-menu/dist/cjs/components/item/DropdownItem';
 
 /**
  * {@code Room}'s React {@code Component} prop types.
@@ -40,13 +39,11 @@ export class Room extends Component<Props> {
     render() {
 
         return (
-            <span
-                className = 'roomItem'>
-                <Item
-                    onClick = { this._onJoinBreakoutRoom(this.props.roomName) }>
-                    <p>{this.props.roomName}</p>
-                </Item>
-            </span>
+            <div
+                className = 'roomItem'
+                onClick = { this._onJoinBreakoutRoom(this.props.roomName) }>
+                <p>{this.props.roomName}</p>
+            </div>
         );
     }
 
