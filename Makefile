@@ -20,7 +20,7 @@ compile:
 clean:
 	rm -fr $(BUILD_DIR)
 
-deploy: deploy-init deploy-appbundle deploy-lib-jitsi-meet deploy-libflac deploy-css deploy-local
+deploy: deploy-init deploy-appbundle deploy-lib-jitsi-meet deploy-libflac deploy-css
 
 deploy-init:
 	rm -fr $(DEPLOY_DIR)
@@ -65,9 +65,6 @@ deploy-css:
 	$(NODE_SASS) $(STYLES_MAIN) $(STYLES_BUNDLE) && \
 	$(CLEANCSS) $(STYLES_BUNDLE) > $(STYLES_DESTINATION) ; \
 	rm $(STYLES_BUNDLE)
-
-deploy-local:
-	([ ! -x deploy-local.sh ] || ./deploy-local.sh)
 
 dev: deploy-init deploy-css deploy-lib-jitsi-meet deploy-libflac
 	$(WEBPACK_DEV_SERVER)
