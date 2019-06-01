@@ -74,6 +74,7 @@ buck-out/
 *.jsbundle
 *.framework
 android/app/release
+jitsi-meet-web.tar.bz2
 
 # precommit-hook
 .jshintignore
